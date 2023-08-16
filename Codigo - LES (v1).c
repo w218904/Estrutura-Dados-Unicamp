@@ -68,7 +68,7 @@ int main(void)
 
 	int i, info;
 	int erro; /* valor de erro retornado pelas funcoes */
-	Tno_ls *inicio, *aux2, *aux3, *aux4, *aux5;
+	Tno_ls *inicio, *aux2, *aux3, *aux4, *aux5, *aux6;
 
 	inicio = NULL; // indicar a lista vazia
 
@@ -100,12 +100,22 @@ int main(void)
         aux2 = aux2 -> prox;
     }
     aux2 = inicio;
+    aux3 = inicio;
+    aux4 = inicio -> prox;
+    aux5 = inicio -> prox -> prox;
+    aux6 = inicio -> prox -> prox -> prox;
 
-    aux3 = inicio -> prox;
-    aux4 = inicio -> prox -> prox;
-    inicio -> prox = aux4;
-    printf("Valor de aux3: %p\n", aux3);
+
+    // inicio -> prox = aux6;
+    // inicio -> prox -> prox -> prox = aux5;
+    // inicio -> prox -> prox = aux3;
+
     printf("Valor de inicio: %p\n", inicio);
+    printf("Valor de aux2: %p\n", aux2);
+    printf("Valor de aux3: %p\n", aux3);
+    printf("Valor de aux4: %p\n", aux4);
+    printf("Valor de aux5: %p\n", aux5);
+    printf("Valor de aux6: %p\n", aux6);
 
     for (i=1;i<=4;i++)
     {
