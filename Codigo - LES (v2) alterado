@@ -124,7 +124,7 @@ int main(void)
                     }
                     system("pause");
                     break;
-            case 8: printf("Posicao de exclusao: ");
+             case 8:printf("Posicao de exclusao: ");
                     scanf("%d",&pos);
                     erro=Remover_meio_LS (&inicio, pos);
                     if (erro == 0) printf("Exclusao realizada com sucesso\n");
@@ -426,7 +426,7 @@ int Remover_fim_LS     (Tno_ls **p_inicio)
 int Remover_meio_LS (Tno_ls **p_inicio, int pos)
 {
     int tam;
-    Tno_ls *aux, *percorre;
+    Tno_ls *aux, *aux2, *percorre;
 
     /* Tratamento de erros ======================================= */
     if (pos<= 0)
@@ -457,7 +457,8 @@ int Remover_meio_LS (Tno_ls **p_inicio, int pos)
                     percorre = percorre -> prox;
                     pos_aux++;
                 }
-                free(aux);
+                aux = percorre -> prox;
+                free(percorre);
         }
     }
     return 0;
