@@ -442,23 +442,27 @@ int Remover_meio_LS (Tno_ls **p_inicio, int pos)
     if (pos==1)
     {   /* insercao no inicio */
         Remover_inicio_LS (p_inicio);
+        printf("Remocao no inicio da lista");
     }
     else
     {   if (pos == tam+1)
         {
             Remover_fim_LS (p_inicio);
+            printf("Remocao no fim da lista");
         }
         else {
                 int pos_aux=1;
                 percorre = *p_inicio;
-                while (pos_aux!=pos-1) /* parar uma posicao antes */
+                while (pos_aux!=pos) /* parar uma posicao antes */
                 {
                     aux = percorre;
-                    percorre = percorre -> prox;
+                    aux2 = percorre -> prox;
+                    percorre = percorre -> prox -> prox;
                     pos_aux++;
                 }
-                aux = percorre -> prox;
-                free(percorre);
+                aux -> prox = percorre;
+                free(aux2);
+                printf("Remocao no meio da lista");
         }
     }
     return 0;
